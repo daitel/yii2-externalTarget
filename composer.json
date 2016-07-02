@@ -16,6 +16,7 @@
             "homepage": "https://github.com/nfedoseev"
         }
     ],
+    "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
             "nfedoseev\\yii2\\ExternalTarget\\": "src/"
