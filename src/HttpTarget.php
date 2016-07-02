@@ -43,10 +43,13 @@ class HttpTarget extends Target{
      */
     public function export()
     {
+        $data = [];
         foreach ($this->messages as $msg) {
             $message = new Message($msg, $this->tag);
-            $this->sent($message);
+            $data[] = $message->getData();
         }
+
+        $this->sent($data);
     }
 
     /**
@@ -66,14 +69,11 @@ class HttpTarget extends Target{
     }
 
     /**
-     * Sent message
-     * @param $message Message
+     * Sent data
+     * @param $data array
      */
-    private function sent($message){
-        $data = $message->getData();
-
+    private function sent($data){
         $client = new Client(['baseUrl' => $this->baseUrl]);
         $client->post('sent', $data)->send();
-
     }
 }
