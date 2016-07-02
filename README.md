@@ -1,2 +1,6 @@
-[![Latest Version](https://img.shields.io/github/tag/nfedoseev/yii2-external-target.svg?style=flat-square&label=release)](https://packagist.org/packages/nfedoseev/yii2-external-target)
-[![License](https://poser.pugx.org/phpunit/nfedoseev/yii2-external-target)](https://packagist.org/packages/nfedoseev/yii2-external-target)
+Yii 2 External Target for logging
+=================================
+
+[![Latest Stable Version](https://poser.pugx.org/nfedoseev/yii2-external-target/v/stable)](https://packagist.org/packages/nfedoseev/yii2-external-target)
+[![License](https://poser.pugx.org/nfedoseev/yii2-external-target/license)](https://packagist.org/packages/nfedoseev/yii2-external-target)
+[![Total Downloads](https://poser.pugx.org/nfedoseev/yii2-external-target/downloads)](https://packagist.org/packages/nfedoseev/yii2-external-target)
