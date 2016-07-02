@@ -5,6 +5,10 @@
     "keywords": ["errors", "yii", "yii2", "log", "log target"],
     "homepage": "https://github.com/nfedoseev/yii2-external-target",
     "license": "MIT",
+    "require": {
+        "yiisoft/yii2": "*",
+        "yiisoft/yii2-httpclient": "~2.0.0"
+    },
     "authors": [
         {
             "name": "Nikita Fedoseev",
