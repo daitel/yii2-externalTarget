@@ -13,11 +13,11 @@ use yii\httpclient\Client;
 use yii\log\Target;
 
 /**
- * Class HttpGetTarget sends log to user API by HTTP GET Request
+ * Class HttpTarget sends log to user API by HTTP Request
  *
  * @package nfedoseev\yii2\ExternalTarget
  */
-class HttpGetTarget extends Target{
+class HttpTarget extends Target{
     /**
      * @var string Base API url
      */
@@ -31,10 +31,9 @@ class HttpGetTarget extends Target{
      */
     public $tag;
 
-    public function __construct($module, $config = [])
+    public function __construct($config = [])
     {
         parent::__construct($config);
-        $this->module = $module;
         $this->tag = uniqid();
     }
 
