@@ -8,7 +8,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "nfedoseev\\yii2\\ExternalTarget": "src/"
+            "nfedoseev\\yii2\\ExternalTarget\\": "src/"
         }
     }
 }
