@@ -1,0 +1,2 @@
+[![Latest Version](https://img.shields.io/github/tag/nfedoseev/yii2-external-target.svg?style=flat-square&label=release)](https://packagist.org/packages/nfedoseev/yii2-external-target)
+[![License](https://poser.pugx.org/phpunit/nfedoseev/yii2-external-target)](https://packagist.org/packages/nfedoseev/yii2-external-target)

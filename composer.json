@@ -1,0 +1,14 @@
+{
+    "name": "nfedoseev/yii2-external-target",
+    "description": "Yii 2 External Targets for logs",
+    "keywords": ["errors", "yii", "yii2", "log"],
+    "homepage": "https://github.com/nfedoseev/yii2-external-target",
+    "type": "yii2-extension",
+    "license": "MIT",
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "nfedoseev\\yii2\\ExternalTarget": "src/"
+        }
+    }
+}
