@@ -1,11 +1,17 @@
 {
     "name": "nfedoseev/yii2-external-target",
-    "description": "Yii 2 External Targets for logs",
-    "keywords": ["errors", "yii", "yii2", "log"],
-    "homepage": "https://github.com/nfedoseev/yii2-external-target",
     "type": "yii2-extension",
+    "description": "Yii 2 External Targets for logs",
+    "keywords": ["errors", "yii", "yii2", "log", "log target"],
+    "homepage": "https://github.com/nfedoseev/yii2-external-target",
     "license": "MIT",
-    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "Nikita Fedoseev",
+            "email": "agent.daitel@gmail.com",
+            "homepage": "https://github.com/nfedoseev"
+        }
+    ],
     "autoload": {
         "psr-4": {
             "nfedoseev\\yii2\\ExternalTarget\\": "src/"
