@@ -1,8 +1,8 @@
 {
     "name": "nfedoseev/yii2-external-target",
     "type": "yii2-extension",
-    "description": "Yii 2 External Targets for logs",
-    "keywords": ["errors", "yii", "yii2", "log", "log target"],
+    "description": "External logs target for the Yii framework",
+    "keywords": ["errors", "yii", "yii2", "log", "log target", "logger"],
     "homepage": "https://github.com/nfedoseev/yii2-external-target",
     "license": "MIT",
     "require": {
@@ -19,7 +19,7 @@
     "minimum-stability": "dev",
     "autoload": {
         "psr-4": {
-            "nfedoseev\\yii2\\ExternalTarget\\": "src/"
+            "nfedoseev\\yii2\\ExternalTarget\\": ""
         }
     }
 }
