@@ -20,34 +20,6 @@ use yii\helpers\VarDumper;
 class Message
 {
     /**
-     * @var string Tag
-     */
-    public $tag;
-    /**
-     * @var string Site
-     */
-    public $site;
-    /**
-     * @var string Url
-     */
-    public $url;
-    /**
-     * @var string Method
-     */
-    public $method;
-    /**
-     * @var string User IP
-     */
-    public $user_ip = null;
-    /**
-     * @var int User ID
-     */
-    public $user_id = null;
-    /**
-     * @var int Status Code
-     */
-    public $status;
-    /**
      * @var mixed String or some complex data, such as an exception object
      */
     public $message;
@@ -90,10 +62,6 @@ class Message
      */
     public $timestamp;
     /**
-     * @var int Time
-     */
-    public $time;
-    /**
      * @var array Debug backtrace, contains the application code call stacks
      */
     public $traces;
@@ -106,20 +74,7 @@ class Message
      */
     public function __construct($message, $tag, $site = '')
     {
-        $this->tag = $tag;
-        $this->site = $site;
-
         list($this->message, $this->level, $this->category, $this->timestamp) = $message;
-
-        $request = Yii::$app->getRequest();
-        $this->url = $request->getAbsoluteUrl();
-        $this->method = $request->getMethod();
-        $this->ip = $request->getUserIP();
-
-        $response = Yii::$app->getResponse();
-        $this->status = $response->statusCode;
-
-        $this->time = time();
 
         $this->prepare();
     }
@@ -130,13 +85,6 @@ class Message
      */
     public function getData(){
         return [
-            'tag' => $this->tag,
-            'site' => $this->site,
-            'url' => $this->url,
-            'method' => $this->method,
-            'user_ip' => $this->user_id,
-            'user_id' => $this->user_id,
-            'status' => $this->status,
             'message' => $this->message,
             'message_full' => $this->messageFull,
             'message_short' => $this->messageShort,
@@ -147,7 +95,6 @@ class Message
             'level' => $this->level,
             'category' => $this->category,
             'timestamp' => $this->timestamp,
-            'time' => $this->time,
             'traces' => json_encode($this->traces)
         ];
     }
@@ -159,7 +106,6 @@ class Message
     {
         $this->prepareText();
         $this->prepareTraces();
-        $this->prepareUser();
     }
 
     /**
@@ -200,16 +146,6 @@ class Message
                     }
                 }
             }
-        }
-    }
-
-    /**
-     * Prepare User
-     */
-    private function prepareUser(){
-        if (Yii::$app->has('user') && ($user = Yii::$app->get('user')) && ($identity = $user->getIdentity(false))
-        ) {
-            $this->user_id = $identity->id;
         }
     }
 
