@@ -71,7 +71,7 @@ class HttpTarget extends Target{
     private function exportMessages(&$data)
     {
         foreach ($this->messages as $msg) {
-            $message = new Message($msg, $this->tag);
+            $message = new Message($msg);
             $data['messages'][] = $message->getData();
         }
     }

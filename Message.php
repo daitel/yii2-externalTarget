@@ -69,10 +69,8 @@ class Message
     /**
      * Convert Yii2 Logged message
      * @param $message array
-     * @param $tag string
-     * @param $site string
      */
-    public function __construct($message, $tag, $site = '')
+    public function __construct($message)
     {
         list($this->message, $this->level, $this->category, $this->timestamp) = $message;
 
