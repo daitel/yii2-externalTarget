@@ -16,7 +16,8 @@ use yii\log\Target;
  *
  * @package nfedoseev\yii2\ExternalTarget
  */
-class HttpTarget extends Target{
+class HttpTarget extends Target
+{
     /**
      * @var string Base API url
      */
@@ -33,6 +34,10 @@ class HttpTarget extends Target{
      * @var array Statuses for ignoring
      */
     public $ignore_statuses = [];
+    /**
+     * @var bool
+     */
+    private static $send = false;
 
     /**
      * Exports log [[messages]] to a specific destination.
@@ -40,11 +45,14 @@ class HttpTarget extends Target{
      */
     public function export()
     {
-        $data = $this->prepareData();
+        if (self::$send == false) {
+            $data = $this->prepareData();
 
-        if (!in_array($data['status'], $this->ignore_statuses)) {
-            $this->exportMessages($data);
-            $this->sent($data);
+            if (!in_array($data['status'], $this->ignore_statuses)) {
+                $this->exportMessages($data);
+                $this->sent($data);
+                self::$send = true;
+            }
         }
     }
 
@@ -80,7 +88,8 @@ class HttpTarget extends Target{
      * Sent data
      * @param $data array
      */
-    private function sent($data){
+    private function sent($data)
+    {
         $client = new Client(['baseUrl' => $this->baseUrl]);
         $client->post('sent', $data)->send();
     }
@@ -99,7 +108,7 @@ class HttpTarget extends Target{
             'url' => $request->getAbsoluteUrl(),
             'site' => $this->site,
             'time' => date("Y-m-d H:i:s"),
-            'status' => (int) $response->statusCode,
+            'status' => (int)$response->statusCode,
             'method' => $request->getMethod(),
             'user_ip' => $request->getUserIP(),
             'user_id' => $this->getUserId(),
@@ -110,8 +119,9 @@ class HttpTarget extends Target{
      * Return generated uniq tag of request
      * @return string
      */
-    private function getTag(){
-        return date('YmdH-').sha1($this->site.uniqid('', true));
+    private function getTag()
+    {
+        return date('YmdH-') . md5($this->site) . uniqid('', true);
     }
 
     /**
