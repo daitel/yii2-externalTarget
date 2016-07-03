@@ -92,7 +92,7 @@ class Message
             'additional' => json_encode($this->additional),
             'level' => $this->level,
             'category' => $this->category,
-            'timestamp' => $this->timestamp,
+            'time' => date('Y-m-d H:i:s', $this->timestamp),
             'traces' => json_encode($this->traces)
         ];
     }
