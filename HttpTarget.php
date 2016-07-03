@@ -111,7 +111,7 @@ class HttpTarget extends Target{
      * @return string
      */
     private function getTag(){
-        return date('YmdH-').md5($this->site).uniqid('', true);
+        return date('YmdH-').sha1($this->site.uniqid('', true));
     }
 
     /**
