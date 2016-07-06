@@ -8,7 +8,6 @@
 namespace nfedoseev\yii2\ExternalTarget;
 
 use Yii;
-use yii\httpclient\Client;
 
 /**
  * Class LogmanClient
@@ -64,7 +63,7 @@ class LogmanClient
         $data['source'] = $source;
         $data['data'] = $_data;
 
-        $client = new Client(['baseUrl' => $this->baseUrl]);
+        $client = new \yii\httpclient\Client(['baseUrl' => $this->baseUrl]);
         $client->post('sent', $data)->send();
     }
 } 
