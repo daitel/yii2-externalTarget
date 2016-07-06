@@ -24,7 +24,7 @@ class Tag {
      * @return string
      */
     public static function get(){
-        if(empty($tag)){
+        if(empty(self::$tag)){
             self::$tag = date('YmdH-').sha1(uniqid());
         }
 
