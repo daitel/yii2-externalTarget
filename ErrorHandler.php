@@ -99,10 +99,10 @@ class ErrorHandler extends \yii\web\ErrorHandler
         $data = [
             'class' => get_class($ex),
             'error_group' => $ex->getMessage() . ':' . $ex->getLine(),
-            'line_number ' => $ex->getLine(),
-            'file_name ' => $ex->getFile(),
-            'message ' => $ex->getMessage(),
-            'stack_trace ' => $ex->getTraceAsString(),
+            'line_number' => $ex->getLine(),
+            'file_name' => $ex->getFile(),
+            'message' => $ex->getMessage(),
+            'stack_trace' => $ex->getTraceAsString(),
         ];
 
         Client::get()->sent($data, LogmanClient::SOURCE_HANDLER);
