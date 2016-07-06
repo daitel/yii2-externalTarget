@@ -48,8 +48,22 @@ class LogmanClient
             'status' => (int)$response->statusCode,
             'method' => $request->getMethod(),
             'user_ip' => $request->getUserIP(),
-            'user_id' => $this->user_id,
+            'user_id' => $this->getUserId(),
         ];
+    }
+
+    /**
+     * Get user id
+     * @return int
+     */
+    private function getUserId()
+    {
+        if (Yii::$app->has('user')) {
+            $id = $this->user_id;
+            return !Yii::$app->user->isGuest ? Yii::$app->user->identity->$id : 0;
+        } else {
+            return 0;
+        }
     }
 
     /**
