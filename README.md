@@ -34,20 +34,30 @@ Configuring application
 After extension is installed you need to setup log target class:
 
 ```php
-'log' => [
-    ...
-    'targets' => [
-        [
-            'class' => 'nfedoseev\yii2\ExternalTarget\HttpTarget',
-            'levels' => ['error', 'warning', 'info'],
-            'logVars' => [],
-            'baseUrl' => 'http://example.com/log',
+    'components' => [
+        'errorHandler' => [
+            'errorAction' => 'site/error',
+            'class' => 'nfedoseev\yii2\ExternalTarget\ErrorHandler',
+        ],
+        'logmanClient' => [
+            'class' => 'nfedoseev\yii2\ExternalTarget\LogmanClient',
+            'baseUrl' => 'your_logger_collector_url',
             'site' => 'your_site_identity',
             'user_id' => 'id',
             'ignore_statuses' => [200]
         ],
+        'log' => [
+            'traceLevel' => YII_DEBUG ? 3 : 0,
+            'targets' => [
+                [
+                    'class' => 'nfedoseev\yii2\ExternalTarget\LogTarget',
+                    'levels' => ['error'],
+                    'categories' => ['yii\db\*', 'app\*'],
+                ],
+                ...
+            ],
+        ],
         ...
     ],
-],
 ...
 ```
