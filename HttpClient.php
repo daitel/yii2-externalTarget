@@ -10,10 +10,10 @@ namespace nfedoseev\yii2\ExternalTarget;
 use Yii;
 
 /**
- * Class LogmanClient
+ * Class HttpClient
  * @package nfedoseev\yii2\ExternalTarget
  */
-class LogmanClient
+class HttpClient
 {
     const SOURCE_TARGET = 0;
     const SOURCE_HANDLER = 1;
