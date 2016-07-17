@@ -40,7 +40,7 @@ After extension is installed you need to setup log target class:
             'class' => 'nfedoseev\yii2\ExternalTarget\ErrorHandler',
         ],
         'logmanClient' => [
-            'class' => 'nfedoseev\yii2\ExternalTarget\LogmanClient',
+            'class' => 'nfedoseev\yii2\ExternalTarget\HttpClient',
             'baseUrl' => 'your_logger_collector_url',
             'site' => 'your_site_identity',
             'user_id' => 'id',
