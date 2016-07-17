@@ -17,14 +17,14 @@ use yii\base\InvalidConfigException;
  */
 class Client {
     /**
-     * @return LogmanClient
+     * @return LogClient
      * @throws \yii\base\InvalidConfigException
      */
     public static function get()
     {
-        if (!Yii::$app->has('logmanClient')) {
-            throw new InvalidConfigException('LogmanClient is invalid.');
+        if (!Yii::$app->has('logClient')) {
+            throw new InvalidConfigException('LogClient is invalid.');
         }
-        return Yii::$app->logmanClient;
+        return Yii::$app->logClient;
     }
 } 

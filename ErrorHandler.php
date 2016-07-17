@@ -105,6 +105,6 @@ class ErrorHandler extends \yii\web\ErrorHandler
             'stack_trace' => $ex->getTraceAsString(),
         ];
 
-        Client::get()->sent($data, LogmanClient::SOURCE_HANDLER);
+        Client::get()->sent($data, LogClient::SOURCE_HANDLER);
     }
 } 
